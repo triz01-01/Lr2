@@ -143,4 +143,3 @@ function expandedForm(num) {
   return res.join(' + ');
 }
 
-9.
