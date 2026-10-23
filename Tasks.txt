@@ -204,4 +204,22 @@ function longest(arr, n) {
 
 13.
 
+14.
+
+function isCircleSorted( arr ){
+  // ...
+  let drops = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let next = (i + 1) % arr.length;
+    if (arr[i] > arr[next]) {
+      drops++;
+    }
+  }
+  return drops <= 1;
+}
+
+15.
+
+16.
+
 
