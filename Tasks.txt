@@ -180,4 +180,12 @@ function bingo(ticket, win){
 
 11.
 
+function domainName(url){
+  //your code here
+  let clean = url.replace(/^https?:\/\//, '').replace(/^www\./, '');
+  return clean.split('.')[0];
+}
+
+12.
+
 
