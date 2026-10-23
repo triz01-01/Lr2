@@ -1,0 +1,146 @@
+1.
+function hasTwoCubeSums(n) {
+  //TODO
+  let sums = [];
+  for (let i = 1; i * i * i < n; i++) {
+    let rem = n - i * i * i;
+    let j = Math.round(Math.cbrt(rem));
+    if (j * j * j === rem && j > i) {
+      sums.push(i + '+' + j);
+    }
+  }
+  
+  if (sums.length >= 2) {
+    return true;
+  }
+  return false;
+}
+
+2.
+function ipv4Parser(ip, mask){
+  //your code here
+  let ipArr = ip.split('.').map(Number);
+  let maskArr = mask.split('.').map(Number);
+  let net = [];
+  let host = [];
+  
+  for (let i = 0; i < 4; i++) {
+    let n = ipArr[i] & maskArr[i];
+    let h = ipArr[i] & (~maskArr[i] & 255);
+    net.push(n);
+    host.push(h);
+  }
+  
+  return [net.join('.'), host.join('.')];
+}
+
+3.
+
+function century(year) {
+  let c = Math.ceil(parseInt(year) / 100);
+  let lastDigit = c % 10;
+  let lastTwo = c % 100;
+  
+  if (lastTwo >= 11 && lastTwo <= 13) {
+    return c + "th";
+  }
+  
+  if (lastDigit === 1) {
+    return c + "st";
+  } else if (lastDigit === 2) {
+    return c + "nd";
+  } else if (lastDigit === 3) {
+    return c + "rd";
+  }
+  
+  return c + "th";
+}
+
+4.
+function findMissing(list) {  
+  let step = (list[list.length - 1] - list[0]) / list.length;
+  
+  for (let i = 0; i < list.length - 1; i++) {
+    if (list[i + 1] - list[i] !== step) {
+      return list[i] + step;
+    }
+  }
+}
+
+5.
+
+
+
+function primeFactors(n){
+    //your code here
+    let res = "";
+    let d = 2;
+    
+    while (n > 1) {
+        if (n % d === 0) {
+            let count = 0;
+            while (n % d === 0) {
+                n = n / d;
+                count++;
+            }
+            if (count === 1) {
+                res += "(" + d + ")";
+            } else {
+                res += "(" + d + "**" + count + ")";
+            }
+        }
+        d++;
+    }
+
+6.
+  
+  function toWeirdCase(string){
+  //TODO
+  let words = string.split(' ');
+  let result = [];
+  
+  for (let i = 0; i < words.length; i++) {
+    let w = words[i];
+    let newWord = '';
+    for (let j = 0; j < w.length; j++) {
+      if (j % 2 === 0) {
+        newWord += w[j].toUpperCase();
+      } else {
+        newWord += w[j].toLowerCase();
+      }
+    }
+    result.push(newWord);
+  }
+  
+  return result.join(' ');
+}
+
+7.
+function wave(str){
+  // Code here
+  let result = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ' ') {
+      result.push(str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1));
+    }
+  }
+  return result;
+}
+
+8.
+function expandedForm(num) {
+  // Your code here
+  let str = num.toString();
+  let res = [];
+  
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== '0') {
+      let zeros = str.length - 1 - i;
+      res.push(str[i] + '0'.repeat(zeros));
+    }
+  }
+  
+  return res.join(' + ');
+}
+
+9.
