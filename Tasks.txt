@@ -222,4 +222,23 @@ function isCircleSorted( arr ){
 
 16.
 
+17.
+function cache(func) {
+  // do your magic here
+  let cacheMap = {};
+  
+  return function() {
+    let key = JSON.stringify(arguments);
+    
+    if (key in cacheMap) {
+      return cacheMap[key];
+    }
+    
+    let result = func.apply(this, arguments);
+    cacheMap[key] = result;
+    return result;
+  };
+}
+
+18.
 
