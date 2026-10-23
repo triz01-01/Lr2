@@ -188,4 +188,20 @@ function domainName(url){
 
 12.
 
+function longest(arr, n) {
+  //code me
+  let indexed = arr.map((str, i) => ({ str, i, len: str.length }));
+  
+  indexed.sort((a, b) => {
+    if (b.len !== a.len) {
+      return b.len - a.len;
+    }
+    return a.i - b.i;
+  });
+  
+  return indexed[n - 1].str;
+}
+
+13.
+
 
